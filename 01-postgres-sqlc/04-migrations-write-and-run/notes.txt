@@ -1,0 +1,39 @@
+Indo até o github migrate golang podemos acessar a documentação: 
+https://github.com/golang-migrate/migrate/tree/master/cmd/migrate
+
+' No Ubuntu ''''''''''''''''''''''''''''''''''''''''''
+
+# Baixando o binário direto (mais rápido e limpo)
+curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
+# Movendo para a pasta de binários para poder usar de qualquer lugar
+sudo mv migrate /usr/local/bin/migrate
+
+Agora criaremos uma pasta: mkdir simplebank
+Dentro dela criamos também uma pasta: mkdir -p db/migration para armazenar nossos arquivos de migração 
+
+Criando primeiro arquivo de migração:
+migrate create -ext sql -dir db/migration -seq init_schema
+
+Pegamos o arquivo de schema e colamos no arquivo migration up que será responsável por subir as alteações
+Também já programamos o arquivo down, para que ele delete o que for subido, nesse caso as 3 tabelas
+
+Agora testamos se o container ainda está online com 
+Testando o status: docker ps -a
+Startando o container: docker start postgres14
+Acessando seu shell: docker exec -it postgres14 /bin/sh 
+Criando um novo banco: createdb --username=root --owner=root simple_bank
+Acessando o banco: psql simple_bank
+Sair do banco: \q
+Deletando o banco: dropdb simple_bank
+Saindo do shell do container: exit
+Criando o banco sem passar pelo shell do container: docker exec -it postgres14 createdb --username=root --owner=root simple_bank
+Acessando o banco sem passar pelo shell do container: docker exec -it postgres14 psql -U root simple_bank
+
+Agora vamos jogar essas funções de criação de banco em um makefile para facilitar não tendo que digitar esses comandos
+Também pegamos a função de criar um container postgres e facilitamos seu acesso 
+
+Agora fechando e abrindo o TablePlus e indo no icone do banco podemos selecionar o simple_bank que estará vazio
+Agora vamos até o terminal e executamos a migração: migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+Voltando para o TablePlus, vemos que os dados estão lá, e que foi criada uma tabela a mais para controlar o numero da versão e se deu td certo
+Agora vamos configurar o makefile 
+
