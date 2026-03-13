@@ -1,0 +1,14 @@
+Indo até o github migrate golang podemos acessar a documentação: 
+https://github.com/golang-migrate/migrate/tree/master/cmd/migrate
+
+' No Ubuntu ''''''''''''''''''''''''''''''''''''''''''
+
+# Baixando o binário direto (mais rápido e limpo)
+curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
+# Movendo para a pasta de binários para poder usar de qualquer lugar
+sudo mv migrate /usr/local/bin/migrate
+
+No terminal ali em baixo coloque:
+migrate create -ext sql -dir db/migration -seq init_schema
+
+

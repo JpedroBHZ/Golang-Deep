@@ -1,0 +1,37 @@
+Vamos agora, istalar o table plus, criar um container postgres, criar um esquema de banco de dados
+
+'No Ubuntu '''''''''''''''''''''''''''''''''''''
+
+Vindo no DockerHub: https://hub.docker.com/_/postgres e procurando a imagem do postgres
+Instalamos a imagem usando o comando: docker pull postgres:14.20-trixie
+
+Criando container postgres (ver a documentação no link acima)
+docker run --name postgres14 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:14.20-trixie
+(caso erre algo e precise apagar)
+liste os containers: docker ps -a 
+pare o container: docker stop (id container)
+apague o container: docker rm (id container) 
+
+Iniciando container: docker start postgres14
+Executando container: docker exec -it postgres14 psql -U root
+Sair: \q
+
+No Windows ''''''''''''''''''''''''''''''''''''''
+
+Baixando table plus 
+https://tableplus.com/
+
+Abra o table plus e configure ele
+create new conection -> postgres
+name: postgres12
+user: root
+password: secret
+database: 
+port: 5432
+
+Conect
+
+Clique no sql e cole o esquema feito no diagram.io e execute
+Recarregue as tabelas para aparecer
+(Caso erre algo, ou tenha que alterar é só selecionar as tabelas e deletar em cascata)
+

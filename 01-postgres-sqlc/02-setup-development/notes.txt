@@ -1,0 +1,36 @@
+Instalaremos as ferramentas que usaremos no desenvolvimento
+
+No Windows '''''''''''''''''''''''''''''' 
+
+terminal
+https://aka.ms/terminal
+
+WSL2 
+No terminal: wsl --install
+(configure um usuário e senha para você no ubuntu)
+
+VsCode 
+Só procurar o vscode na microsoft store
+abrir e instalar a extensão: wsl, go
+
+Docker
+https://docs.docker.com/desktop/features/wsl/
+Abra o docker como adm e nas configs marque: "add the docker internal names to the host's"
+
+No Ubuntu ''''''''''''''''''''''''''''''''
+
+Make
+No terminal do ubuntu: 
+sudo apt update
+sudo apt install make
+
+Go
+sudo snap install go --classic
+
+Sqlc
+sudo snap install sqlc
+
+teste no terminal ubuntu
+docker ps 
+go version 
+
