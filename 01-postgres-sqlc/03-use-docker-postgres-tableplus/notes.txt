@@ -23,10 +23,10 @@ https://tableplus.com/
 
 Abra o table plus e configure ele
 create new conection -> postgres
-name: postgres12
+name: postgres14
 user: root
 password: secret
-database: 
+database: root
 port: 5432
 
 Conect

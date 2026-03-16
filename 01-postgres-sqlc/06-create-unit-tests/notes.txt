@@ -1,0 +1,13 @@
+Vamos começar com nossos testes
+Criamos o arquivo de teste account_test.go dentro da pasta sqlc
+Criamos também um arquivo de conexão main_test.go
+Ao tentarmos executar o teste, da um erro pois falta uma biblioteca de comunicação do banco "lib/pq": go get github.com/lib/pq@latest
+Executamos também go mod tidy para importar as dependencias
+Clique em run package test para rodar o teste principal desse arquivo de conexão 
+Para verificar o resultado do teste instalamos o pacote testify: go get github.com/stretchr/testify
+Tente executar e caso de erro de o go mod tidy, as vezes o testefy precisa de algum outro pacote, como foi o meu caso
+Note que em accounts.sql.go há algumas aparecendo em verde oq mostra que estão sendo cobertas por nossos testes unitários, e os em vermelho os que não estão
+Agora vamos configurar o preenchimento de dados aleatórios para os nossos testes
+Crie o arquivo db/util/random.go
+Criamos no nosso makefile uma função que executa nossos teste e mostra um registro detalhado
+Agora vamos criar testes para as outras operações além de create
