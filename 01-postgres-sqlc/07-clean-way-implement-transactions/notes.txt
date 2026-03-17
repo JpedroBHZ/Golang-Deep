@@ -1,0 +1,29 @@
+O que é uma transaction? 
+Uma unica unidade de trabalho
+Composta de várias operações de banco de dados
+
+Exemplo: Ao passar 10 reais da conta 1 para a 2 
+-Criamos um registro de transferencia de 10
+-Criamos um registro de saida de 10 da conta 1
+-Criamos uma registro de entrada de 10 na conta 2
+-Subtraimos 10 do saldo da conta 1
+-Adicionamos 10 ao saldo da conta 2 
+
+Pra que precisamos delas? 
+Pra que nossa unidade de trabalho seja confiavel e concistente até em caso de falhas
+-Oferece isolamento entre os programas acessam os bancos simultaneamente 
+
+Para satisfazer esses objetivos um banco deve satisfazer as propriedades ACID
+A: Atomicity - Todas as operações de trasações devem passar, se uma falhar o banco permanece inalterado 
+C: Consistency - O estado do banco de dados deve permanecer válido após a execução da transação. As regras previamente definidas devem ser satisfeitas
+I: Isolation - As transações executadas não devem afetar umas as outras
+D: Durability - Os dados gravados por uma trasação de sucesso, devem ser armazenados e não podem ser perdido em falhas
+
+Vamos ver como implementar elas
+Crie o arquivo db/sqlc/store.go
+Agora para testar vamos criar o arquivo db/sqlc/store_test.go
+Para criar nossos teste vamos usar a conexão do arquivo main_test.go modificada usando uma variavel global testdb
+
+
+
+
