@@ -1,0 +1,3 @@
+Nesta aula vamos implementar o recurso de atualização de saldo
+Para isso precisamos tratar de transações simultâneas evitando deadlocks 
+Usaremos a abordagem tdd(desenvovimento orientado a testes)

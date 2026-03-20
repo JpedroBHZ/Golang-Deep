@@ -24,6 +24,5 @@ Crie o arquivo db/sqlc/store.go
 Agora para testar vamos criar o arquivo db/sqlc/store_test.go
 Para criar nossos teste vamos usar a conexão do arquivo main_test.go modificada usando uma variavel global testdb
 
-
-
+NOTA: já tem que ter criados os métodos gerados pela query da tabela entries e transfers, ele não mostrou no vídeo, mas eu adicionei ao código
 
